@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/firesat/FireSat_Mock.egg-info/PKG-INFO
+src/firesat/FireSat_Mock.egg-info/SOURCES.txt
+src/firesat/FireSat_Mock.egg-info/dependency_links.txt
+src/firesat/FireSat_Mock.egg-info/top_level.txt
+src/firesat/__init__.py
+src/firesat/hello.py
+src/firesat/FireSat_Mock.egg-info/PKG-INFO
+src/firesat/FireSat_Mock.egg-info/SOURCES.txt
+src/firesat/FireSat_Mock.egg-info/dependency_links.txt
+src/firesat/FireSat_Mock.egg-info/top_level.txt

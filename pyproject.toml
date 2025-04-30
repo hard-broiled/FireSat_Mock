@@ -1,0 +1,45 @@
+[project]
+name = "FireSat_Mock"
+version = "2025.0.0"
+requires-python = ">=3.10"
+authors = [
+    {name = "Jonathan Boyle", email = "tbd@mail.com"}
+]
+maintainers = [
+    {name = "Jonathan Boyle", email = "tbd@mail.com"}
+]
+description = "Mock FireSat package for testing purposes."
+readme = "README.md"
+keywords = ["FireSat", "mock", "testing"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python",
+    "License :: OSI Approved :: MIT License",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src/firesat"}
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = ["-ra", "--showlocals", "--strict-markers", "--strict-config"]
+xfail_strict = true
+filterwarnings = ["error"]
+log_cli_level = "info"
+testpaths = [
+  "src/tests",
+]
+
+[tool.coverage.run]
+omit = ["src/tests/*"]
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 88
+exclude = ".venv, .pytest_cache"
