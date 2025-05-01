@@ -8,3 +8,8 @@ __pycache__/
 .tox/
 .mypy_cache/
 .coverage
+.ruff_cache*
+*.egg-info/
+*.egg
+eggs/
+.eggs/

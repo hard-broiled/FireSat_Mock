@@ -34,12 +34,25 @@ testpaths = [
 [tool.coverage.run]
 omit = ["src/tests/*"]
 
-[tool.black]
-line-length = 88
+# [tool.black]
+# line-length = 250
+
+[tool.ruff]
+line-length = 250
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
 
 [tool.isort]
 profile = "black"
 
+# Currently, flake8 doesn't support metadata configuration in pyproject.toml, so this is symbolic
+# Actual metadata config is held within the setup.cfg file
 [tool.flake8]
-max-line-length = 88
+max-line-length = 250
 exclude = ".venv, .pytest_cache"
