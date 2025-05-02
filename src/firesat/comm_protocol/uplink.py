@@ -10,4 +10,4 @@ def send_uplink_packet(packet: CCSDS_Packet) -> tuple[str, bytes]:
     # For now, we just encode, decode, and return the packet with a return message
     encodingResult = encode(packet)
     response = decode(encodingResult)
-    return (f"Packet sent successfully: packet.version = {response.version}", encodingResult)
+    return (f"Packet sent successfully: packet.header = {response.header}", encodingResult)

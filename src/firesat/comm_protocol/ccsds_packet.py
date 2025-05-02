@@ -4,6 +4,7 @@ from typing import Any
 
 @dataclass
 class CCSDS_Packet:
+    header: str
     version: int
     packet_type: str  # e.g. "telemetry", "telecommand"
     apid: int

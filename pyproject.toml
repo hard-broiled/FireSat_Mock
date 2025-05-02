@@ -1,25 +1,26 @@
 [project]
-name = "FireSat_Mock"
-version = "2025.0.0"
-requires-python = ">=3.10"
+name = "firesat-mock"
+version = "0.1.0"
+description = "Mock FireSat package for experimental and testing purposes"
 authors = [
-    {name = "Jonathan Boyle", email = "tbd@mail.com"}
+    {name = "Hard-Broiled",email = "jhbboyle@gmail.com"}
 ]
 maintainers = [
-    {name = "Jonathan Boyle", email = "tbd@mail.com"}
+    {name = "Hard-Broiled",email = "jhbboyle@gmail.com"}
 ]
-description = "Mock FireSat package for testing purposes."
+license = { text = "CC BY-NC 4.0" }
 readme = "README.md"
-keywords = ["FireSat", "mock", "testing"]
-
+requires-python = ">=3.10"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python",
-    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
 ]
 
-[tool.setuptools]
-package-dir = {"" = "src/firesat"}
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
@@ -30,6 +31,65 @@ log_cli_level = "info"
 testpaths = [
   "src/tests",
 ]
+
+[tool.poetry]
+name = "firesat-mock"
+version = "0.1.0"
+packages = [
+    { include = "src/firesat" }
+]
+
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.8"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+fastapi = { version = ">=0.115.0,<0.116.0", extras = ["standard"] }
+uvicorn = "^0.34.2"
+pydantic = "^2.11.4"
+pydantic-core = "^2.33.2"
+httpx = "^0.28.1"
+APScheduler = "^3.11.0"
+python-dotenv = "^1.1.0"
+requests = "^2.32.3"
+
+# Optional runtime (only if used in CLI or satellite sim)
+typer = "^0.15.3"
+rich = "^14.0.0"
+
+[tool.poetry.group.dev.dependencies]
+# Linting & formatting
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.2.0"
+pylint = "^3.3.6"
+mypy = "^1.9.0"
+ruff = "^0.11.0"
+
+# Testing
+pytest = "^8.3.5"
+tox = "^4.25.0"
+coverage = "^7.5.0"
+
+# Docs
+Sphinx = "^8.2.0"
+sphinxcontrib-applehelp = "^2.0.0"
+sphinxcontrib-devhelp = "^2.0.0"
+sphinxcontrib-htmlhelp = "^2.1.0"
+sphinxcontrib-jsmath = "^1.0.1"
+sphinxcontrib-qthelp = "^2.0.0"
+sphinxcontrib-serializinghtml = "^2.0.0"
+alabaster = "^1.0.0"
+babel = "^2.17.0"
+docutils = "^0.21.2"
+imagesize = "^1.4.1"
+snowballstemmer = "^2.2.0"
+
+# Pre-commit and Poetry tooling
+pre-commit = "^4.2.0"
+poetry = "^2.1.2"
+poetry-core = "^2.1.2"
 
 [tool.coverage.run]
 omit = ["src/tests/*"]
@@ -53,6 +113,6 @@ profile = "black"
 
 # Currently, flake8 doesn't support metadata configuration in pyproject.toml, so this is symbolic
 # Actual metadata config is held within the setup.cfg file
-[tool.flake8]
-max-line-length = 250
-exclude = ".venv, .pytest_cache"
+# [tool.flake8]
+# max-line-length = 250
+# exclude = ".venv, .pytest_cache"

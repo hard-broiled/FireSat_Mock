@@ -7,6 +7,7 @@ from firesat.comm_protocol.uplink import send_uplink_packet
 # serialization test class
 def test_encode_decode_packet():
     packet = CCSDS_Packet(
+        header="1_hdr",
         version=1,
         packet_type="telemetry",
         apid=100,
@@ -21,6 +22,7 @@ def test_encode_decode_packet():
 # uplink test class
 def test_uplink_simulation():
     packet = CCSDS_Packet(
+        header="21_hdr",
         version=21,
         packet_type="telecommand",
         apid=101,
@@ -28,12 +30,13 @@ def test_uplink_simulation():
         payload="activate",
     )
     response = send_uplink_packet(packet)
-    assert f"Packet sent successfully: packet.version = {packet.version}" in response
+    assert f"Packet sent successfully: packet.header = {packet.header}" in response
 
 
 # downlink test class
 def test_downlink_simulation():
     packet = CCSDS_Packet(
+        header="3_hdr",
         version=3,
         packet_type="telemetry",
         apid=102,
@@ -42,4 +45,4 @@ def test_downlink_simulation():
     )
     encodedPacket = encode(packet)
     response = receive_downlink_packet(encodedPacket)
-    assert f"Packet received successfully: packet.version = {packet.version}" in response
+    assert f"Packet received successfully: packet.header = {packet.header}" in response

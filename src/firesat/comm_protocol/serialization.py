@@ -13,6 +13,7 @@ def encode(packet: CCSDS_Packet) -> bytes:
     # Expanding this out for now for potential new features etc.
     # This is a simple example; in a real-world scenario, you would need to handle errors and validate the data
     packet_dict = {
+        "header": packet.header,
         "version": packet.version,
         "packet_type": packet.packet_type,
         "apid": packet.apid,
@@ -32,6 +33,7 @@ def decode(data: bytes) -> CCSDS_Packet:
     # Expanding this out for now for potential new features etc.
     # This is a simple example; in a real-world scenario, you would need to handle errors and validate the data
     return CCSDS_Packet(
+        header=packet_dict["header"],
         version=packet_dict["version"],
         packet_type=packet_dict["packet_type"],
         apid=packet_dict["apid"],

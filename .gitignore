@@ -13,3 +13,6 @@ __pycache__/
 *.egg
 eggs/
 .eggs/
+DEVLOG.md
+PROJECTPLAN.md
+.poetry/
