@@ -10,19 +10,19 @@ def generate_mock_events(start_time: datetime = None) -> list[MissionEvent]:
     return [
         MissionEvent(
             id="evt-001",
-            timestamp=start + timedelta(seconds=10),
+            timestamp=start + timedelta(seconds=1),
             event_type="observation",
             target="Wildfire A",
         ),
         MissionEvent(
             id="evt-002",
-            timestamp=start + timedelta(seconds=20),
+            timestamp=start + timedelta(seconds=1),
             event_type="downlink",
             target="Ground Station Alpha",
         ),
         MissionEvent(
             id="evt-003",
-            timestamp=start + timedelta(seconds=30),
+            timestamp=start + timedelta(seconds=1),
             event_type="observation",
             target="Wildfire B",
         ),
